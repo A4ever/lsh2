@@ -1,0 +1,29 @@
+{
+  "deploy": {
+    "after_build": [
+      "python manage.py collectstatic --noinput",
+      "python manage.py migrate --noinput",
+      "echo 'Skipping compilemessages'"
+    ],
+    "before_build": [
+      "export LIARA_DISABLE_COMPILEMESSAGES=1"
+    ]
+  }
+}
+
+{
+  "deploy": {
+    "healthcheck": {
+      "path": "/health/",
+      "interval": 10,
+      "timeout": 5,
+      "retries": 3
+    },
+    "after_build": [
+      "python manage.py collectstatic --noinput --clear",
+      "python manage.py migrate --noinput"
+    ]
+  }
+}
+
+{

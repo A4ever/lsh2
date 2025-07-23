@@ -1,0 +1,23 @@
+[flake8]
+max-line-length = 78
+exclude =
+    .git,
+    .gitignore,
+    *.pot,
+    *.py[co],
+    __pycache__,
+    venv,
+    .env,
+    settings.py,
+    tests.py,
+    ./accounts/migrations/,
+    ./dashboard/,
+    ./cart/apps.py,
+ignore =
+    E501,
+    W503,
+    F403,
+    F401,
+    F403,
+    F405,
+    
